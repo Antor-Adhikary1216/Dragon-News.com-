@@ -1,12 +1,27 @@
 import { createBrowserRouter } from "react-router";
 import App from "../App";
 import Headers from "../Components/Header/Headers";
+import HomeLayouts from "../Layouts/HomeLayouts";
+import Home from "../Page/Home";
+import CetagoryNews from "../Page/CetagoryNews";
 
 
 const router = createBrowserRouter([
     {
         path:"/",
-     Component:Headers
+     element:<HomeLayouts></HomeLayouts>,
+     children:[
+        {
+            path:"/",
+            element:<Home/>
+        },
+        {
+            path:"cetagory/:id",
+            element:<CetagoryNews/>
+        }
+     ]
+     
+
     }
     ,{
         path:"/*",

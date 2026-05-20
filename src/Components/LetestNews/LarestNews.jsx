@@ -1,5 +1,7 @@
 import React from 'react';
-import Marquee from 'react-fast-marquee';
+
+
+
 
 
 const LarestNews = () => {
@@ -8,7 +10,17 @@ const LarestNews = () => {
         <div className='flex p-5 gap-10 items-center'>
             <p className='bg-red-400 w-27 p-2 text-center text-[17px] text-white'>Latest</p>
             {/* Next Pr ==//??? */}
-               <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, voluptates? </p>  
+       
+
+     <p>Match Highlights: Germany vs Spain — as it happened   !   Match Highlights: Germany vs Spain as...</p>
+
+       
+      
+            
+                
+
+         
+             
 
         </div>
         </div>

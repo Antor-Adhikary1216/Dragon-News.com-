@@ -1,7 +1,7 @@
 import React from 'react';
 import logo  from '../../assets/logo.png'
 import { format,} from "date-fns";
-import LarestNews from '../LetestNews/LarestNews';
+
 
 
 const Headers = () => {
@@ -17,7 +17,7 @@ const Headers = () => {
 
             
         </div>
-        <LarestNews/>
+       
         </>
         
     );
