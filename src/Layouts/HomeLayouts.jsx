@@ -21,7 +21,7 @@ const HomeLayouts = () => {
 
     
             
-           <main className=' w-285 mx-auto mt-10 grid grid-cols-12 '>
+           <main className=' w-285 mx-auto mt-10 grid grid-cols-12 gap-5 '>
             {/* Left section==> */}
 
             <section className='col-span-3'>

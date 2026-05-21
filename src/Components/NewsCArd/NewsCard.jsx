@@ -47,7 +47,7 @@ const [ fulltext,setFulltext]=useState(false)
            <div className="border-b text-[#ada4a4] mt-4  w-[95%] mx-auto "></div>
 
 
-           <div className="flex justify-between">
+           <div className="flex items-center justify-between">
             <div className="flex gap-4 text-[19px] text-[#7e7979]">
             <div className="stras flex gap-1.5 text-[20px] text-orange-500">
                 <span><FaStar /></span>
@@ -58,9 +58,9 @@ const [ fulltext,setFulltext]=useState(false)
             </div>
             <p>{rating.number}</p>
            </div>
-           <div className="flex items-center gap-4 p-2">
-           <span className='text-[25px] text-[#7e7979]'> <IoEyeSharp /></span>
-            <p className='text-[20px] text-[#7e7979]'>{total_view}</p>
+           <div className="flex items-center gap-4 p-2 ">
+           <span className='text-[25px] text-[#7e7979] '> <IoEyeSharp /></span>
+            <p className='text-[20px] text-[#7e7979]'>{total_view} views</p>
            </div>
 
            </div>
