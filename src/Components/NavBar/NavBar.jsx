@@ -12,7 +12,7 @@ const NavBar = () => {
             </div>
 
               <div className="nav">
-                  <ul className='flex gap-3 text-[#706F6F] text-[17px] font-normal'>
+                  <ul className=' nav flex gap-3  text-[#706F6F] text-[17px] font-normal'>
                    <NavLink> <li>Home</li></NavLink>
                    <NavLink> <li>About</li></NavLink>
                    <NavLink> <li>Career</li></NavLink>
