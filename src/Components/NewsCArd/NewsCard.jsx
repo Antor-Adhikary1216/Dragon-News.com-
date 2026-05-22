@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { CiBookmark, CiShare2 } from 'react-icons/ci';
 import { FaStar } from 'react-icons/fa';
 import { IoEyeSharp } from 'react-icons/io5';
+import { NavLink } from 'react-router';
 
 const NewsCard = ({news}) => {
 
 const [ fulltext,setFulltext]=useState(false)
 
 
-    const {image_url,title,author,thumbnail_url,details,rating,total_view}=news
+    const {image_url, id,title,author,thumbnail_url,details,rating,total_view}=news
     return (
         <div className='main-card w-139 h-full shadow-md p-2  ' >
             <div className='flex bg-base-300 p-3 gap-3  rounded-md'>
@@ -31,16 +32,19 @@ const [ fulltext,setFulltext]=useState(false)
                 <img src={image_url} alt=""  className='rounded-md'/>
             </div>
            <div className=''>
-             <p className=" text-[16px] text-[#706F6F] h-40 overflow-y-auto scroll-smooth">{fulltext ?  details:details.slice(0,400)}
+             <p className=" text-[16px] text-[#706F6F] h-40  ">{fulltext ?  details:details.slice(0,400)}
+          
+            </p>  
+            <NavLink to= {`/newsdetais/${id}`}>
+                <span className='cursor-pointer text-[20px] text-orange-400'>Read More</span>
+            </NavLink>
 
-            </p>
-
-            <span  onClick={()=>setFulltext(!fulltext)} className='cursor-pointer text-[20px] text-orange-400' >
+            {/* <span  onClick={()=>setFulltext(!fulltext)} className='' >
                 { 
                     fulltext?  "Show less":"Read More"
                 }
                 </
-            span>
+            span> */}
             
            </div>
            </div>

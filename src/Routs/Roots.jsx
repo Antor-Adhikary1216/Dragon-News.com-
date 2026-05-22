@@ -7,6 +7,7 @@ import CetagoryNews from "../Page/CetagoryNews";
 import Login from "../Page/Login";
 import Register from "../Page/Register";
 import AuthLayot from "../Layouts/AuthLayot";
+import Newsdetails from "../Page/newsdetails";
 
 
 const router = createBrowserRouter([
@@ -43,7 +44,13 @@ const router = createBrowserRouter([
          element:<Register/>
         }
     ]
+},
+{
+    path:"/newsdetais/:id", 
+    element:<Newsdetails></Newsdetails>,
+    loader: ()=> fetch('/news.json')
 }
+
     ,{
         path:"/*",
         element:"Error -404"
