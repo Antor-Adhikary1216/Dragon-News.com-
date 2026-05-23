@@ -1,24 +1,32 @@
-import React, { use } from 'react';
-import { NavLink } from 'react-router';
+import React, { use, useState } from 'react';
+import { NavLink, useLocation, useNavigate } from 'react-router';
 import { Authcontext } from '../Provider/AuthProvider';
 
 const Login = () => {
+  const [error,seterror]=useState("")
+  const navigate = useNavigate()
+  const locaTion = useLocation()
+  // .log(locaTion)
 const {signIn} = use(Authcontext)
   const loginfeandeler=(evnt)=>{
     evnt.preventDefault()
 const email = evnt.target.email.value;
 const password = evnt.target.password.value;
-console.log(email,password)
+// console.log(email,password)
 signIn(email,password).
 then((singin)=>{
   const user =singin.user
-  console.log(user)
+  // console.log(user)
+  evnt.target.reset()
+ navigate(`${locaTion.state ? locaTion.state:"/"}`)
+  
+  
 
 })
 .catch(error=>{
   const errorCode = error.code;
-  const  errorMessage = error.message
-  alert(errorCode,errorMessage)
+  // const  errorMessage = error.message
+  seterror(errorCode)
 })
 
   }
@@ -35,17 +43,20 @@ then((singin)=>{
     </div>
     <div className="card bg-base-100 w-188 p-5 max-w-sm  ">
          <h1 className="text-2xl text-center font-semibold mt-5">Login your account</h1>
-      <div className="card-body">
+      <div className="card-body"> 
         <form onSubmit={loginfeandeler} >
             <fieldset className="fieldset gap-4">
           <label className="label text-[17px] text-[#2c2a2a] font-semibold">Email address </label>
           <input type="email" className="input p-3 " name='email'
-           placeholder="Enter email address" />
+           placeholder="Enter email address" required />
           <label className="label text-[17px] text-[#2c2a2a] font-semibold">Password</label>
           <input type="password" className="input p-3" name='password'
-           placeholder="Password" />
+           placeholder="Password" required />
           <div><a className="link link-hover">Forgot password?</a></div>
-          <button  className="btn btn-neutral mt-4">Login</button>
+          {
+            error && <p className='text-red-500'>{"fiil up the form"}</p>
+          }
+          <button type='submut'  className="btn btn-neutral mt-4">Login</button>
           <p>Dont’t Have An Account ?<NavLink to="/auth/Register"> Register</NavLink></p>
         </fieldset>
         </form>

@@ -1,21 +1,36 @@
-import React, { use } from 'react';
-import { NavLink } from 'react-router';
+import React, { use, useState } from 'react';
+import { NavLink, useNavigate } from 'react-router';
 import { Authcontext } from '../Provider/AuthProvider';
 
 const Register = () => {
-  const {createUsr, setUsre}=use(Authcontext)
+  const naviget = useNavigate()
+  const {createUsr, setUsre,updetedUser}=use(Authcontext)
+  const [nameerror, setnameerror]=useState("");
   const hendelRegister = (e)=>{
     e.preventDefault()
     const email = e.target.email.value;
     const name = e.target.name.value;
+   
+    if(name.length < 5){
+      setnameerror(" Name should be more then 5 charecters!!")
+
+      return
+    }else{
+      setnameerror("")
+    }
     const url = e.target.photourl.value;
     const password = e.target.password.value;
     // console.log(email,name,url,password)
     createUsr(email,password)
     .then(result=>{
       const user = result.user;
-      console.log(user)
-       setUsre(user)
+      // console.log(user)
+       e.target.reset()
+      updetedUser({displayName:name, photoURL:url}).then(()=>{
+  setUsre({...user, displayName:name, photoURL:url})
+  naviget("/")
+      })
+     
     })
      .catch((error) => {
     const errorCode = error.code;
@@ -52,6 +67,9 @@ const Register = () => {
           </div>
           <button className="btn btn-neutral mt-4">Register</button>
           <p>you have a already Account ?<NavLink  to="/auth/login"> Login</NavLink></p>
+          {
+            nameerror && <p className='text-red-500'>{nameerror}</p>
+          }
         </fieldset>
         </form>
         

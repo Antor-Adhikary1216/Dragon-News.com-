@@ -14,7 +14,7 @@ const Newsdetails = () => {
         setNwes(newdata)
     }
     ,[data,id])
-    console.log(news)
+    // console.log(news)
     
     return (
         <div className='w-285 mx-auto'>
