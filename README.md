@@ -8,7 +8,7 @@ The app displays category-based news, author information, ratings, views, latest
 
 ## 🚀 Live Demo
 
-Live link:https://boisterous-naiad-2a9beb.netlify.app/cetagory/0
+[Live link:https://boisterous-naiad-2a9beb.netlify.app/cetagory/0](https://boisterous-naiad-2a9beb.netlify.app/)
 
 ---
 
